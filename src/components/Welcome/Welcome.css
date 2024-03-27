@@ -1,0 +1,41 @@
+.bg-image {
+  background-image: url("../../assets/Background/Rectangle.png");
+}
+
+@media screen and (max-width: 600px) {
+  .brand {
+    height: 1.5rem;
+  }
+  .brands {
+    display: flex;
+    flex-direction: column;
+  }
+  .personImage {
+    display: block;
+  }
+  .bg-image {
+    padding: 1.25rem;
+    background-image: none;
+    background-color: #f2f0f1;
+  }
+  .title {
+    font-size: 2rem;
+  }
+  .description {
+    font-size: 14pt;
+    text-align: justify;
+  }
+  .static-cards {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 2081px) {
+  .title {
+    font-size: 5rem;
+  }
+}
+@media screen and (max-width: 1366px) {
+  .title {
+    font-size: 2rem;
+  }
+}

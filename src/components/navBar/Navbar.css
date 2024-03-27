@@ -1,0 +1,29 @@
+@keyframes slideInRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInRight {
+  animation: slideInRight 0.5s ease-in-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-slideInLeft {
+  animation: slideInLeft 0.5s ease-in-out;
+}
+
+.h-full.overflow-y-auto.overflow-x-hidden.rounded.bg-gray-50.py-4.px-3.dark\:bg-gray-800 {
+  background: white;
+}

@@ -1,0 +1,11 @@
+@media only screen and (max-width: 800px) {
+  .full-container {
+    flex-direction: column;
+  }
+  .right-sidess {
+    width: 100%;
+  }
+  .left-sidess {
+    width: 100%;
+  }
+}

@@ -1,0 +1,23 @@
+@media screen and (max-width: 600px) {
+  .main-rl {
+    flex-direction: row;
+    width: 100%;
+  }
+  .left-sides h1 {
+    font-size: 1rem;
+  }
+  .left-sides h2 {
+    font-size: 0.9rem;
+  }
+  .left-sides {
+    display: flex;
+    justify-content: flex-start;
+  }
+  .right-sides {
+    font-size: 12px;
+  }
+  .twoinputs {
+    display: flex;
+    flex-direction: column;
+  }
+}

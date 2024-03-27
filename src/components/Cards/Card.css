@@ -1,0 +1,18 @@
+.img-hover-zoom .image {
+  transition: transform 0.3s ease;
+}
+
+.img-hover-zoom:hover .image {
+  transform: scale(1.1);
+}
+
+@media only screen and (max-width: 570px) {
+  .descriptions {
+    height: 10vh;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    text-overflow: ellipsis;
+  }
+}

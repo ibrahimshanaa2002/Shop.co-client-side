@@ -1,0 +1,28 @@
+/* Styles for scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-track {
+  background-color: rgba(0, 0, 0, 0.05);
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-thumb {
+  -webkit-border-radius: 20px;
+  border-radius: 20px;
+  background: rgb(54, 49, 49);
+}
+/* Image rendering optimization */
+img {
+  image-rendering: auto;
+}
+/* Smooth transformations */
+.smooth-transform {
+  transform: translateZ(0);
+}
+/* Container smoothness optimization */
+.container {
+  transform: translateZ(0);
+}
