@@ -123,7 +123,7 @@ const Navbar = () => {
                 </div>
               ) : (
                 <div>
-                  <Link to={"authentication"}>
+                  <Link to={"/authentication"}>
                     <Dropdown.Item>Sign Up</Dropdown.Item>
                   </Link>
                 </div>
