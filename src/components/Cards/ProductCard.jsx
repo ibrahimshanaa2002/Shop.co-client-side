@@ -174,7 +174,7 @@ const ProductCard = (props) => {
               style={{ maxWidth: "100%" }}
             />
           </div>
-          <div className="pl-4 pr-4 pb-4 flex flex-col justify-start ">
+          <div className="p-4 flex flex-col justify-start ">
             <div className="text-sm sm:text-base md:text-lg font-bold titles leading-3 line-clamp-2 h-6 mb-1">
               {props.title}
             </div>
