@@ -61,9 +61,7 @@ const ProductCard = (props) => {
 
     if (confirmDelete) {
       try {
-        await axios.delete(
-          `${backendUrl}/api/product/product/${props._id}`
-        );
+        await axios.delete(`${backendUrl}/api/product/product/${props._id}`);
         console.log("Product deleted successfully.");
       } catch (error) {
         console.error("Error deleting product:", error);
@@ -168,7 +166,7 @@ const ProductCard = (props) => {
           className="flex flex-col items-start  w-full h-full border border-gray-200 rounded-lg overflow-hidden"
           data-aos="zoom-in-down"
         >
-          <div className={`w-full relative img-hover-zoom h-auto`}>
+          <div className={`w-full relative img-hover-zoom h-[30vh] `}>
             <img
               src={props.img}
               className="w-full h-auto"
@@ -176,14 +174,11 @@ const ProductCard = (props) => {
               style={{ maxWidth: "100%" }}
             />
           </div>
-          <div className="p-4 flex flex-col justify-start ">
-            <div
-              className="text-sm sm:text-base md:text-lg font-bold titles"
-              style={{ height: "4rem" }}
-            >
+          <div className="pl-4 pr-4 pb-4 flex flex-col justify-start ">
+            <div className="text-sm sm:text-base md:text-lg font-bold titles leading-3 line-clamp-2 h-6 mb-1">
               {props.title}
             </div>
-            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70">
+            <div className="text-sm sm:text-base md:text-[1.125rem] overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70">
               {props.desc}
             </div>
             <div className="flex items-center mb-2 py-4 justify-start">

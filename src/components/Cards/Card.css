@@ -8,7 +8,7 @@
 
 @media only screen and (max-width: 570px) {
   .descriptions {
-    height: 6vh;
+    height: 6.8vh;
     overflow: hidden;
     display: -webkit-box;
     -webkit-box-orient: vertical;
