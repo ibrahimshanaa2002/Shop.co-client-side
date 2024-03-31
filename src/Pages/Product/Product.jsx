@@ -114,19 +114,19 @@ const Product = () => {
   }
 
   return (
-    <div className="main w-full h-screen flex justify-around gap-6 p-10 ">
+    <div className="main w-full h-full items-center flex justify-around gap-6 p-10 transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white  ">
       {/* Left container */}
-      <div className="left-container w-1/2  flex justify-center gap-6">
+      <div className="left-container w-[40%]  flex justify-center gap-6">
         {/* Big product image */}
         <div className="big-image img-hover-zoom ">
           <img
             src={product.img}
             alt="Brand 1"
-            className="h-full hover:cursor-pointer"
+            className="h-[56vh] lg:h-[55vh] xl:h-[80vh]  w-auto  xl:w-auto hover:cursor-pointer"
           />
         </div>
         {/* Column of small product images */}
-        <div className="column-img px-2 h-full justify-between  flex flex-col overflow-auto gap-3">
+        {/* <div className="column-img px-2 h-full justify-between  flex flex-col overflow-auto gap-3">
           <img
             src={product.img}
             alt=""
@@ -152,10 +152,10 @@ const Product = () => {
             alt=""
             className=" border  h-[30%] w-full rounded-xl hover:border-black duration-100 hover:cursor-pointer"
           />
-        </div>
+        </div> */}
       </div>
       {/* Right container */}
-      <div className="right-container w-1/2 h-full flex flex-col  justify-center">
+      <div className="right-container w-[60%] h-full flex flex-col  justify-center">
         {/* Product title */}
         <h1 className="text-5xl font-extrabold uppercase title">
           {product.title}
@@ -194,12 +194,14 @@ const Product = () => {
         {/* Color selection */}
         <div className="color-container border-b-2 py-2">
           <h1>Select Color</h1>
-          <div className="colors-circle py-5 gap-2 flex flex-wrap  items-center">
+          <div className="colors-circle py-5 gap-2 flex flex-wrap  items-center ">
             {product.color.map((color, index) => (
               <div
                 key={index}
                 className={`w-10 h-10 rounded-full border border-gray-400 cursor-pointer relative ${
-                  selectedColor === color ? "border-4 border-white" : ""
+                  selectedColor === color
+                    ? "border-2 border-white dark:border-orange-500 opacity-70"
+                    : ""
                 } transition duration-300 ease-in-out mb-2 sm:mb-0 sm:mr-2`}
                 onClick={() => selectColor(color)}
                 style={{
@@ -229,7 +231,9 @@ const Product = () => {
                 key={index}
                 onClick={() => handleSizeClick(size)}
                 className={`py-2 px-4 hover:bg-gray-200 border rounded-xl cursor-pointer ${
-                  selectedSize === size ? "bg-black text-white" : ""
+                  selectedSize === size
+                    ? "bg-black dark:bg-orange-500 dark:font-semibold text-white"
+                    : ""
                 }`}
               >
                 {size}
@@ -238,20 +242,17 @@ const Product = () => {
           </div>
         </div>
         {/* Error message */}
-        <div>
+        <div className="py-2 relative h-1">
           {error && (
-            <div className="inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            <div className="inset-y-0 left-0 flex items-center pointer-events-none">
               <MdError className="text-red-900 text-md" />
               <div className="pl-2">
                 <span className="text-red-500 animate-pulse">{error}</span>
               </div>
             </div>
-          )}
-        </div>
-        {/* Success message */}
-        <div className="py-2 relative h-1">
-          {successMessage && (
-            <div className="inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+            
+          )}  {successMessage && (
+            <div className="inset-y-0 left-0 flex items-center pointer-events-none">
               <MdError className="text-green-800 text-md" />
               <div className="pl-2">
                 <span className="text-green-500 animate-pulse">
@@ -260,10 +261,13 @@ const Product = () => {
               </div>
             </div>
           )}
+          
         </div>
+        {/* Success message */}
+       
 
         {/* Quantity counter */}
-        <div className="Counter flex text-center items-center w-full py-5 gap-4">
+        <div className="Counter flex text-center items-center w-full py-5 gap-4 dark:text-black">
           {/* Counter buttons */}
           <div className="counter-container w-[30%]  bg-[#F0F0F0] rounded-full gap-5 p-3 flex items-center justify-around">
             <div className="Negative">
@@ -284,7 +288,7 @@ const Product = () => {
           {/* Add to cart button */}
           <div
             onClick={addToCart}
-            className="Add-To-Cart-container w-[70%] bg-black text-white rounded-full gap-5 p-3 flex items-center justify-center hover:text-black hover:bg-orange-400 duration-300 cursor-pointer"
+            className="Add-To-Cart-container w-[70%] bg-black text-white rounded-full gap-5 p-3 flex items-center justify-center  hover:bg-orange-500 duration-300 cursor-pointer"
           >
             <button className="cart-button text-3xl">Add To Cart</button>
           </div>

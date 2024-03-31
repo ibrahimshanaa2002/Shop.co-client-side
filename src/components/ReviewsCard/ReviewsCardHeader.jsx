@@ -31,9 +31,7 @@ const ReviewsCardHeader = () => {
 
   const handleFilterByDate = async (dateRange) => {
     try {
-      await axios.get(
-        `${backendUrl}/api/user/feedback?dateRange=${dateRange}`
-      );
+      await axios.get(`${backendUrl}/api/user/feedback?dateRange=${dateRange}`);
       // Handle the filtered data, maybe update context or state with the filtered reviews
     } catch (error) {
       console.error("Error filtering reviews by date:", error);
@@ -43,7 +41,7 @@ const ReviewsCardHeader = () => {
   return (
     <div className="main-rl flex justify-between ">
       <div className="left-sides flex gap-2 items-center justify-center">
-        <h1 className="text-2xl font-bold">All Reviews</h1>
+        <h1 className="text-2xl font-bold dark:text-white">All Reviews</h1>
         <h2 className="text-gray-400 text-lg font-semibold">({ratingCount})</h2>
       </div>
       <div className="right-sides flex gap-2 items-center justify-center">

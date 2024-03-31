@@ -28,7 +28,7 @@ const SearchPopup = () => {
         (product.sex || "").toLowerCase(),
         (product.season || "").toLowerCase(),
         (product.style || "").toLowerCase(),
-        (product.color || ""),
+        product.color || "",
       ];
 
       return queryWords.every((word) => {
@@ -71,7 +71,7 @@ const SearchPopup = () => {
   }, []);
 
   return (
-    <div className="w-full" ref={searchRef}>
+    <div className="w-full dark:text-black" ref={searchRef}>
       {/* Search input */}
       <div className="bg-gray-100 flex justify-center items-center sm:flex w-full px-2 py-1 ml-5 placeholder:text-[10px] rounded-full ">
         <IoSearchOutline size={30} className="text-gray-500 " />
@@ -87,12 +87,12 @@ const SearchPopup = () => {
       </div>
       {/* Display search results */}
       {isOpen && (
-        <div className="absolute bg-white top-full z-10 left-0 right-0 shadow-lg border-t-2">
+        <div className="absolute bg-white top-full z-10 left-0 right-0 shadow-lg border-t-2 ">
           {searchResults.map((product) => (
             <Link
               to={`/product/${product._id}`}
               key={product._id}
-              className="flex items-center border-b border-gray-200 py-4  hover:bg-opacity-60 bg-white bg-opacity-50 transition duration-300 ease-in-out hover:bg-gray-100 px-5 "
+              className="flex items-center border-b border-gray-200 py-4  hover:bg-opacity-60 bg-white bg-opacity-50 transition duration-300 ease-in-out hover:bg-gray-100 px-5 dark:hover:bg-[rgb(30,30,30)]  dark:bg-[rgb(15,15,15)] dark:text-white "
             >
               {/* Product image */}
               <img
@@ -102,7 +102,7 @@ const SearchPopup = () => {
               />
               {/* Product details */}
               <div>
-                <h3 className="text-lg font-bold mb-2 text-black">
+                <h3 className="text-lg font-bold mb-2 text-black dark:text-white ">
                   {product.title}
                 </h3>
                 <p className="text-sm text-neutral-500">{product.desc}</p>

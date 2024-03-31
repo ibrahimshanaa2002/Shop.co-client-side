@@ -13,14 +13,17 @@ const ShopDropDown = () => {
 
   return (
     <div className="flex items-center justify-center bg-white">
-      <motion.div animate={open ? "open" : "closed"} className="relative">
+      <motion.div
+        animate={open ? "open" : "closed"}
+        className="relative transition-colors duration-300 dark:bg-[rgb(30,30,30)] dark:text-white"
+      >
         <button
           onClick={() => setOpen((pv) => !pv)}
           className="flex items-center gap-2 px-3  rounded-md text-black  transition-colors"
         >
-          <span className="">Shop</span>
+          <span className="dark:text-white">Shop</span>
           <motion.span variants={iconVariants}>
-            <FiChevronDown />
+            <FiChevronDown className="dark:text-white" />
           </motion.span>
         </button>
 

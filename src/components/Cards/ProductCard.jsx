@@ -15,6 +15,13 @@ const ProductCard = (props) => {
   const [editedOldPrice, setEditedOldPrice] = useState(props.oldprice);
   const [isSaving, setIsSaving] = useState(false);
 
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+    document.body.classList.toggle("dark");
+  };
+
   const handleEdit = () => {
     setIsEditing(!isEditing);
   };
@@ -61,9 +68,7 @@ const ProductCard = (props) => {
 
     if (confirmDelete) {
       try {
-        await axios.delete(
-          `${backendUrl}/api/product/product/${props._id}`
-        );
+        await axios.delete(`${backendUrl}/api/product/product/${props._id}`);
         console.log("Product deleted successfully.");
       } catch (error) {
         console.error("Error deleting product:", error);
@@ -165,7 +170,7 @@ const ProductCard = (props) => {
       ) : (
         <Link
           to={`/product/${props._id}`}
-          className="flex flex-col items-start  w-full h-full border border-gray-200 rounded-lg overflow-hidden"
+          className="flex flex-col items-start  w-full h-full border border-gray-200 dark:border-gray-500 dark:border-opacity-75 rounded-lg overflow-hidden"
           data-aos="zoom-in-down"
         >
           <div className={`w-full relative img-hover-zoom h-auto`}>
@@ -176,14 +181,14 @@ const ProductCard = (props) => {
               style={{ maxWidth: "100%" }}
             />
           </div>
-          <div className="p-4 flex flex-col justify-start ">
+          <div className="p-4 flex flex-col justify-start transition-colors duration-300 dark:bg-[rgb(30,30,30)] w-full ">
             <div
-              className="text-sm sm:text-base md:text-lg font-bold titles"
+              className="text-sm sm:text-base md:text-lg font-bold titles dark:text-white"
               style={{ height: "4rem" }}
             >
               {props.title}
             </div>
-            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70">
+            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70 dark:text-white dark:text-opacity-60">
               {props.desc}
             </div>
             <div className="flex items-center mb-2 py-4 justify-start">
@@ -192,10 +197,10 @@ const ProductCard = (props) => {
               <img src={star1} className="w-4 h-4 mr-1" alt="Star" />
               <img src={star1} className="w-4 h-4 mr-1" alt="Star" />
               <img src={star2} className="w-4 h-4 mr-1" alt="Star" />
-              <span className="text-xs ml-1">4/5</span>
+              <span className="text-sm ml-1 dark:text-white">4/5</span>
             </div>
             <div className="flex items-center text-gray-400 gap-6">
-              <div className="font-bold text-xs sm:text-base md:text-lg text-black">
+              <div className="font-bold text-xs sm:text-base md:text-lg text-black dark:text-white">
                 ${props.newprice}
               </div>
               <div className="font-bold text-xs sm:text-base md:text-lg line-through ">

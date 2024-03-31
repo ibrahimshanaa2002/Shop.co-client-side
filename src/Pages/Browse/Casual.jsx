@@ -34,7 +34,7 @@ const Casual = () => {
   }
 
   return (
-    <div className="w-full py-16">
+    <div className="w-full py-16 transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white">
       <div className="flex flex-col items-center w-full gap-8 px-5 h-full">
         {/* Title */}
         <div className="text-4xl font-bold">Casual's Collection</div>

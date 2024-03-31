@@ -33,7 +33,7 @@ const ReviewsCard = () => {
             data-aos="fade-up"
             data-aos-anchor-placement="top-bottom"
             key={review._id}
-            className="rounded-md shadow-lg bg-white p-5 flex flex-col"
+            className="rounded-md shadow-lg bg-white p-5 flex flex-col transition-colors duration-300 dark:bg-[rgb(30,30,30)] "
           >
             <div className="flex space-x-0.5 mb-2">
               {[...Array(5)].map((_, index) => (
@@ -58,19 +58,19 @@ const ReviewsCard = () => {
             <p className="text-sm font-medium leading-5 text-gray-500 mb-2">
               {review.date}
             </p>
-            <h3 className="font-semibold text-gray-800 mb-auto">
+            <h3 className="font-semibold text-gray-800 mb-auto dark:text-white">
               {review.title}
             </h3>
-            <p className="text-sm font-medium leading-5 text-gray-600 flex-grow line-clamp-3">
+            <p className="text-sm font-medium leading-5 text-gray-600 flex-grow line-clamp-3 dark:text-white dark:opacity-60">
               {review.body}
             </p>
             <div className="mt-4 flex items-center space-x-2">
-              <span className="text-sm font-semibold leading-5 text-gray-900">
+              <span className="text-sm font-semibold leading-5 text-gray-900 dark:text-white">
                 {review.name}
               </span>
               <div className="flex-shrink-0 animate-pulse">
                 <svg
-                  className="w-5 h-5 text-green-600"
+                  className="w-5 h-5 text-green-600 dark:text-blue-500"
                   fill="currentColor"
                   viewBox="0 0 20 20"
                 >
@@ -88,16 +88,16 @@ const ReviewsCard = () => {
     );
   };
   return (
-    <div className="px-5 relative">
+    <div className="px-5 py-16 relative transition-colors duration-300 dark:bg-[rgb(18,18,18)] ">
       <div className="w-full py-4">
         <div className="flex flex-col items-center w-full py-5">
-          <h1 className="text-4xl font-[600] uppercase text-center">
+          <h1 className="text-4xl font-[600] uppercase text-center dark:text-white">
             OUR HAPPY CUSTOMERS
           </h1>
         </div>
 
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="header">
+          <div className="header ">
             <ReviewsCardHeader />
           </div>
           <div className="py-5 mx-auto flex justify-center">
@@ -109,7 +109,7 @@ const ReviewsCard = () => {
         {!showAllReviews && reviews?.length > 4 && (
           <button
             onClick={handleViewAllReviews}
-            className="mt-4 px-4 py-2 bg-black text-white rounded-3xl hover:bg-orange-500 duration-300"
+            className="mt-4 px-4 py-2 bg-black text-white rounded-3xl hover:bg-orange-500 duration-300 dark:bg-orange-500 dark:hover:bg-white hover:text-black"
           >
             View All Reviews
           </button>

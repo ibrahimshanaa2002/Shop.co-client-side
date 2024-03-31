@@ -10,8 +10,8 @@ const Browse = () => {
     Aos.init({ duration: 1000 });
   }, []);
   return (
-    <div className="px-5 flex justify-center" id="browse-by-dress">
-      <div className=" py-4 bg-[#F0F0F0] rounded-xl w-[100%]  2xl:w-[90%]">
+    <div className="px-5 py-16 flex justify-center" id="browse-by-dress">
+      <div className=" py-4 bg-[#F0F0F0] rounded-xl w-[100%]  2xl:w-[90%] transition-colors duration-300 dark:bg-[rgb(30,30,30)] dark:text-white">
         <div className="flex flex-col items-center w-full py-5 h-full ">
           <div className="text-4xl font-[600] uppercase text-center">
             BROWSE BY dress STYLE
@@ -25,7 +25,7 @@ const Browse = () => {
                 <Link
                   to={"/casual-collection"}
                   data-aos="zoom-in-up"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-[30rem]"
+                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-[30rem] transition-colors duration-300 dark:bg-[rgb(30,30,30)]"
                 >
                   <img
                     src={b1}
@@ -44,7 +44,7 @@ const Browse = () => {
                 <Link
                   to={"/formal-collection"}
                   data-aos="zoom-in-up"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-[30rem]"
+                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-[30rem] transition-colors duration-300 dark:bg-[rgb(30,30,30)]"
                 >
                   <img
                     src={b2}
@@ -63,7 +63,7 @@ const Browse = () => {
                 <Link
                   to={"/party-collection"}
                   data-aos="zoom-in-up"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-[30rem]"
+                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:col-span-2 md:h-[30rem] transition-colors duration-300 dark:bg-[rgb(30,30,30)]"
                 >
                   <img
                     src={b3}
@@ -82,7 +82,7 @@ const Browse = () => {
                 <Link
                   to={"/gym-collection"}
                   data-aos="zoom-in-up"
-                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-[30rem]"
+                  className="group relative flex h-48 items-end overflow-hidden rounded-lg bg-gray-100 shadow-lg md:h-[30rem] transition-colors duration-300 dark:bg-[rgb(30,30,30)]"
                 >
                   <img
                     src={b4}

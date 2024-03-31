@@ -33,7 +33,7 @@ const AllProducts = () => {
   }
 
   return (
-    <div className="w-full py-16">
+    <div className="w-full py-16 transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white">
       <div className="flex flex-col items-center w-full gap-8 px-5 h-full">
         <div className="text-4xl font-bold uppercase">All Products</div>
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">

@@ -12,7 +12,7 @@ const Banner = () => {
   };
 
   return (
-    <div>
+    <div className="">
       {bannerVisible && (
         <div className="w-full bg-black flex items-center justify-center text-white px-6 py-4 relative animate-slideInTop">
           <div>

@@ -12,16 +12,18 @@ import {
 const Footer = () => {
   return (
     <div>
-      <div className="bg-[#F0F0F0] h-full flex flex-col items-center justify-center relative w-full px-16">
+      <div className="bg-[#F0F0F0] transition-colors duration-300 dark:bg-[rgb(30,30,30)] dark:text-white h-full flex flex-col items-center justify-center relative w-full px-16">
         <div className="flex flex-col items-center justify-between w-full py-24">
           {/* shopco */}
           <div className="flex-col bg items-center justify-center gap-4 w-full mr-8 py-10">
-            <h1 className="font-extrabold text-xl py-2">SHOP.CO</h1>
+            <h1 className="font-extrabold text-xl py-2 dark:text-orange-500">
+              SHOP.CO
+            </h1>
             <p className="py-2">
               We have clothes that suit your style and which you’re proud to
               wear. From women to men.
             </p>
-            <div className="flex items-center justify-start gap-4 w-full">
+            <div className="flex items-center justify-start gap-4 w-full dark:text-orange-500">
               <FaTwitter />
               <FaFacebookF />
               <FaInstagram />
@@ -31,12 +33,10 @@ const Footer = () => {
           <div className="flex flex-col sm:flex-row items-center justify-between w-full">
             {/* company */}
             <div className="flex-col items-center justify-center gap-4 w-full sm:w-auto">
-              <h1 className="font-semibold">Company</h1>
+              <h1 className="font-semibold dark:text-orange-500">Company</h1>
               <ul className="mt-2 gap-2 flex-col items-start justify-center ">
                 <li className="hover:text-orange-500">
-                  <Link to={"/AboutUs"} >
-                    About Us
-                  </Link>
+                  <Link to={"/AboutUs"}>About Us</Link>
                 </li>
                 <li className="hover:text-orange-500">
                   <Link to={"/Features"}>Features</Link>
@@ -47,7 +47,7 @@ const Footer = () => {
             </div>
             {/* Help */}
             <div className="flex-col items-center justify-center gap-4 w-full py-10 sm:py-0 sm:w-auto">
-              <h1 className="font-semibold">Help</h1>
+              <h1 className="font-semibold dark:text-orange-500">Help</h1>
               <ul className="mt-2 gap-2 flex-col items-start justify-center">
                 <Link to={"/ContactUs"} className="hover:text-orange-500">
                   Customer Support
@@ -64,7 +64,7 @@ const Footer = () => {
             </div>
             {/* FAQ */}
             <div className="flex-col items-center justify-center gap-4 w-full sm:w-auto mb-7">
-              <h1 className="font-semibold">FAQ</h1>
+              <h1 className="font-semibold dark:text-orange-500">FAQ</h1>
               <ul className="mt-2 gap-2 flex-col items-start justify-center">
                 <li className="hover:text-orange-500">Account</li>
                 <li className="hover:text-orange-500">Manage Deliveries</li>
@@ -74,7 +74,7 @@ const Footer = () => {
             </div>
             {/* Resources */}
             <div className="flex-col items-center justify-center gap-4 w-full sm:w-auto">
-              <h1 className="font-semibold">Resources</h1>
+              <h1 className="font-semibold dark:text-orange-500">Resources</h1>
               <ul className="mt-2 gap-2 flex-col items-start justify-center">
                 <li className="hover:text-orange-500">Free eBook</li>
                 <li className="hover:text-orange-500">Development Tutorials</li>

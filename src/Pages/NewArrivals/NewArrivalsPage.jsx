@@ -33,10 +33,12 @@ const NewArrivalsPage = () => {
   }
 
   return (
-    <div className="w-full py-16">
+    <div className="w-full py-16 transition-colors duration-300 dark:bg-[rgb(15,15,15)]">
       <div className="flex flex-col items-center w-full gap-8 px-5 h-full">
         {/* Title */}
-        <div className="text-4xl font-bold uppercase">NEW ARRIVALS</div>
+        <div className="text-4xl font-bold uppercase dark:text-white">
+          NEW ARRIVALS
+        </div>
 
         {/* Product Grid */}
         <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">

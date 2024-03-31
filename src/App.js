@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { fas } from "@fortawesome/free-solid-svg-icons";
+import { DarkModeProvider } from "../src/context/DarkModeContext/darkModeContext";
 import "./App.css";
 
 import LoginSignup from "./Pages/Hero/loginSignup/LoginSignup";
@@ -26,16 +27,11 @@ import Delivery from "./Pages/FooterLists/Delivery/Delivery";
 import CheckOut from "./Pages/CheckOut/CheckOut";
 import TermsConditions from "./Pages/FooterLists/Terms & Conditions/TermsConditions";
 import PrivacyPolicy from "./Pages/FooterLists/PrivacyPolicy/PrivacyPolicy";
-import Orders from "./components/Orders/Orders";
 import LayoutTopSelling from "./Layout/LayoutTopSelling";
 import LayoutCasual from "./Layout/LayoutCasual";
 import LayoutParty from "./Layout/LayoutParty";
 import LayoutFormal from "./Layout/LayoutFormal";
 import LayoutGym from "./Layout/LayoutGym";
-import Gym from "./Pages/Browse/Gym";
-import Formal from "./Pages/Browse/Formal";
-import Party from "./Pages/Browse/Party";
-import Casual from "./Pages/Browse/Casual";
 
 library.add(fas);
 
@@ -55,42 +51,51 @@ function isAdmin() {
 }
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  const toggleDarkMode = () => {
+    setDarkMode((prevMode) => !prevMode);
+    document.body.classList.toggle("dark");
+  };
+
   return (
-    <BrowserRouter>
-      <ScrollToTop />
-      <Routes>
-        <Route path="/" element={<Layout />} />
-        {/* Authentication */}
-        <Route path="/authentication" element={<LoginSignup />} />
-        <Route path="/forget-password" element={<ForgetPassword />} />
-        <Route path="/reset-password" element={<ResetPassword />} />
-        {/* Products pages */}
-        <Route path="/product/:productId" element={<LayoutProduct />} />
-        <Route path="/allProducts" element={<LayoutAllProducts />} />
-        <Route path="/newArrivals" element={<LayoutArrivals />} />
-        <Route path="/topSelling" element={<LayoutTopSelling />} />
-        {/* Browse pages */}
-        <Route path="/gym-collection" element={<LayoutGym />} />
-        <Route path="/formal-collection" element={<LayoutFormal />} />
-        <Route path="/party-collection" element={<LayoutParty />} />
-        <Route path="/casual-collection" element={<LayoutCasual />} />
-        {/* Products Categories */}
-        <Route path="/women-products" element={<Women />} />
-        <Route path="/men-products" element={<Man />} />
-        <Route path="/kids-product" element={<Kids />} />
-        {/* Admin And Users Routes */}
-        {isAdmin() && <Route path="/admin" element={<LayoutAdmin />} />}
-        <Route path="/cart" element={<LayoutCart />} />
-        <Route path="/checkOut" element={<CheckOut />} />
-        {/* Footers Lists */}
-        <Route path="/aboutUs" element={<AboutUs />} />
-        <Route path="/features" element={<Feature />} />
-        <Route path="/contactUs" element={<ContactUs />} />
-        <Route path="/delivery-details" element={<Delivery />} />
-        <Route path="/termsConditions" element={<TermsConditions />} />
-        <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
-      </Routes>
-    </BrowserRouter>
+    <DarkModeProvider>
+      <BrowserRouter>
+        <ScrollToTop />
+        <Routes>
+          <Route path="/" element={<Layout />} />
+          {/* Authentication */}
+          <Route path="/authentication" element={<LoginSignup />} />
+          <Route path="/forget-password" element={<ForgetPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
+          {/* Products pages */}
+          <Route path="/product/:productId" element={<LayoutProduct />} />
+          <Route path="/allProducts" element={<LayoutAllProducts />} />
+          <Route path="/newArrivals" element={<LayoutArrivals />} />
+          <Route path="/topSelling" element={<LayoutTopSelling />} />
+          {/* Browse pages */}
+          <Route path="/gym-collection" element={<LayoutGym />} />
+          <Route path="/formal-collection" element={<LayoutFormal />} />
+          <Route path="/party-collection" element={<LayoutParty />} />
+          <Route path="/casual-collection" element={<LayoutCasual />} />
+          {/* Products Categories */}
+          <Route path="/women-products" element={<Women />} />
+          <Route path="/men-products" element={<Man />} />
+          <Route path="/kids-product" element={<Kids />} />
+          {/* Admin And Users Routes */}
+          {isAdmin() && <Route path="/admin" element={<LayoutAdmin />} />}
+          <Route path="/cart" element={<LayoutCart />} />
+          <Route path="/checkOut" element={<CheckOut />} />
+          {/* Footers Lists */}
+          <Route path="/aboutUs" element={<AboutUs />} />
+          <Route path="/features" element={<Feature />} />
+          <Route path="/contactUs" element={<ContactUs />} />
+          <Route path="/delivery-details" element={<Delivery />} />
+          <Route path="/termsConditions" element={<TermsConditions />} />
+          <Route path="/privacyPolicy" element={<PrivacyPolicy />} />
+        </Routes>
+      </BrowserRouter>
+    </DarkModeProvider>
   );
 }
 

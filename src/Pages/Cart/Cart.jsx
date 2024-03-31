@@ -48,14 +48,11 @@ const Cart = () => {
       try {
         const userData = JSON.parse(localStorage.getItem("user"));
         const userToken = userData ? userData.token : null;
-        const response = await axios.get(
-          `${backendUrl}/api/cart/cart`,
-          {
-            headers: {
-              Authorization: `Bearer ${userToken}`,
-            },
-          }
-        );
+        const response = await axios.get(`${backendUrl}/api/cart/cart`, {
+          headers: {
+            Authorization: `Bearer ${userToken}`,
+          },
+        });
 
         setProductsInCart(response.data.productsInCart);
 
@@ -104,16 +101,10 @@ const Cart = () => {
   };
 
   return (
-    <div>
+    <div className="transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white">
       {/* Cart title */}
       <div className="title px-5 py-5">
-        {user ? (
-          <h1 className="text-5xl font-bold flex items-center">
-            {user.username}
-          </h1>
-        ) : (
-          ""
-        )}
+        <h1 className="text-5xl font-bold flex items-center">Your Cart</h1>
       </div>
       {/* Cart content */}
       <div className="full-container w-full flex px-5 py-5 gap-5">
@@ -146,10 +137,10 @@ const Cart = () => {
                         />
                       </div>
                     </div>
-                    <p className="text-xs leading-3 text-gray-600 pt-3">
+                    <p className="text-xs leading-3 text-gray-600 pt-3 dark:text-orange-500 dark:opacity-60">
                       Size: {product.size}
                     </p>
-                    <p className="text-xs leading-3 text-gray-600 py-2 pb-3">
+                    <p className="text-xs leading-3 text-gray-600 py-2 pb-3 dark:text-orange-500 dark:opacity-60">
                       Color: {product.color}
                     </p>
                     <div className="flex flex-col justify-between">
@@ -157,7 +148,7 @@ const Cart = () => {
                         <h1 className="mr-2 text-base font-bold leading-none">
                           Price:
                         </h1>
-                        <p className="leading-none text-gray-800">
+                        <p className="leading-none text-gray-800 dark:text-white  dark:font-semibold">
                           ${product.newprice}
                         </p>
                       </div>
@@ -165,7 +156,7 @@ const Cart = () => {
                         <h1 className="mr-2 text-base font-bold leading-none">
                           Quantity:
                         </h1>
-                        <p className="leading-none text-gray-800">
+                        <p className="leading-none text-gray-800 dark:text-white dark:font-semibold">
                           {product.quantity}
                         </p>
                       </div>
@@ -173,7 +164,7 @@ const Cart = () => {
                         <h1 className="mr-2 text-base font-bold leading-none">
                           Total Cost:
                         </h1>
-                        <p className="leading-none text-gray-800">
+                        <p className="leading-none text-gray-800 dark:text-white  dark:font-semibold">
                           $
                           {calculateTotalCost(
                             product.quantity,
@@ -194,33 +185,39 @@ const Cart = () => {
             <h1 className="text-3xl font-semibold pb-5">Order Summary</h1>
             {/* Subtotal */}
             <div className="subtotal flex items-center justify-between py-2">
-              <h1 className="text-xl text-gray-700">Subtotal</h1>
+              <h1 className="text-xl text-gray-700 dark:text-white">
+                Subtotal
+              </h1>
               <h2 className="text-xl font-bold">${subtotal}</h2>
             </div>
             {/* Discount */}
             <div className="discount flex items-center justify-between py-2">
-              <h1 className="text-xl text-gray-700">Discount (-20%)</h1>
+              <h1 className="text-xl text-gray-700 dark:text-white">
+                Discount (-20%)
+              </h1>
               <h2 className="text-xl text-red-500 font-bold">
                 ${(subtotal * DISCOUNT_RATE).toFixed(2)}
               </h2>
             </div>
             {/* Delivery fee */}
             <div className="fees flex items-center justify-between py-2">
-              <h1 className="text-xl text-gray-700">Delivery Fee</h1>
+              <h1 className="text-xl text-gray-700 dark:text-white">
+                Delivery Fee
+              </h1>
               <h2 className="text-xl  font-bold">${DELIVERY}</h2>
             </div>
             <hr />
             {/* Total */}
             <div className="total flex items-center justify-between py-2">
-              <h1 className="text-xl text-gray-700">Total</h1>
+              <h1 className="text-xl text-gray-700 dark:text-white">Total</h1>
               <h2 className="text-2xl  font-bold">${total}</h2>
             </div>
             {/* Promo code */}
-            <div className="promo flex items-center gap-2">
+            <div className="promo flex items-center gap-2 dark:text-black">
               <div className="relative w-[70%] py-5">
                 <input
                   type="text"
-                  className="pl-10 pr-4 py-2 border rounded-3xl w-full bg-[#F0F0F0]"
+                  className="pl-10 pr-4 py-2 border rounded-3xl w-full bg-[#F0F0F0] focus:outline-none focus:border-transparent focus:ring-0"
                   placeholder="Enter your promo code"
                 />
                 <div

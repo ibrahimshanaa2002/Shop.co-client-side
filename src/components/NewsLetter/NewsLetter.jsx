@@ -33,14 +33,14 @@ const NewsLetter = () => {
   }, []);
 
   return (
-    <div>
-      <div className="sides flex justify-between items-center bg-black py-3 px-10 rounded-2xl mx-9">
+    <div className="py-16 transition-colors duration-300 dark:bg-[rgb(18,18,18)] ">
+      <div className="sides flex justify-between items-center bg-black py-3 px-10 rounded-2xl mx-9 transition-colors duration-300 dark:bg-[rgb(30,30,30)]">
         <div
           className="left-side text-5xl font-bold text-white"
           data-aos="fade-right"
         >
           <h1 className="">STAY UP TO DATE ABOUT</h1>
-          <h2>OUR LATEST OFFERS</h2>
+          <h2 className="dark:text-orange-500">OUR LATEST OFFERS</h2>
         </div>
         <div className="right-side flex flex-col gap-2 w-1/3">
           <div className="EmailInput">

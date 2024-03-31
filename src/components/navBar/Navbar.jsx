@@ -1,14 +1,15 @@
 import React, { useContext, useState, useRef, useEffect } from "react";
 import { FiShoppingCart } from "react-icons/fi";
-import { FaRegUserCircle } from "react-icons/fa";
+import { FaMoon, FaRegUserCircle } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
 import { Sidebar } from "flowbite-react";
 import { MdOutlineStyle } from "react-icons/md";
+import { useDarkMode } from "../../context/DarkModeContext/darkModeContext";
 
 import { HiOutlineMinusSm, HiOutlinePlusSm } from "react-icons/hi";
 import { TiHomeOutline } from "react-icons/ti";
 import { HiOutlineShoppingBag } from "react-icons/hi2";
-import { TbProgressAlert } from "react-icons/tb";
+import { TbMoonFilled, TbProgressAlert } from "react-icons/tb";
 import { BiCategory } from "react-icons/bi";
 import { LuDatabase } from "react-icons/lu";
 
@@ -23,8 +24,10 @@ import { Dropdown } from "flowbite-react";
 import { IoIosTrendingUp } from "react-icons/io";
 import Aos from "aos";
 import { UserContext } from "../../context/userContext/userContextProvider";
+import { IoMoonOutline, IoSunnySharp } from "react-icons/io5";
 
 const Navbar = () => {
+  const { darkMode, toggleDarkMode } = useDarkMode();
   const [mobileNav, setMobileNav] = useState(false);
   const { itemCount } = useContext(CartContext);
   const navbarRef = useRef(null);
@@ -60,17 +63,18 @@ const Navbar = () => {
     // Check if user is an admin
     return user && user.isAdmin;
   };
+
   return (
     <div className="relative" ref={navbarRef}>
-      <div className="flex flex-row items-center px-3 py-4 justify-between md:gap-6 lg:px-8 md:px-8">
+      <div className="flex flex-row items-center px-3 py-4 justify-between md:gap-6 lg:px-8 md:px-8 transition-colors duration-300 dark:bg-[rgb(30,30,30)] ">
         <div className="flex items-center gap-5">
           <RxHamburgerMenu
             onClick={handleMobileNav}
             size={20}
-            className="md:hidden"
+            className="md:hidden dark:text-white"
           />
           <Link to={"/"} data-aos="fade-right">
-            <h1 className="lg:text-3xl md:text-2xl text-lg font-extrabold">
+            <h1 className="lg:text-3xl md:text-2xl text-lg font-extrabold dark:hover:text-orange-500 dark:duration-300 dark:text-white">
               SHOP.CO
             </h1>
           </Link>
@@ -84,19 +88,21 @@ const Navbar = () => {
           <li>
             <ShopDropDown />
           </li>
-          <li>On Sale</li>
-          <Link to={"/newArrivals"}>New Arrivals</Link>
+          <li className="dark:text-white">On Sale</li>
+          <Link className="dark:text-white" to={"/newArrivals"}>
+            New Arrivals
+          </Link>
           <li>
             <CategoriesDropDown />
           </li>
         </ul>
         <SearchPopup />
-        <div className="flex gap-4  items-center justify-center  pl-8 ">
+        <di v className="flex gap-4  items-center justify-center  pl-8 ">
           <Link to={"/Cart"}>
             <div className="relative ">
               <FiShoppingCart
                 size={22}
-                className="hover:text-red-900 duration-200 cursor-pointer"
+                className="hover:text-red-900 duration-200 cursor-pointer dark:hover:text-orange-500 dark:text-white"
               />
               <div className="rounded-full bg-red-600 flex items-center justify-center absolute top-[-35%] left-[-40%] text-white w-full h-full text-sm">
                 {itemCount > 0 ? itemCount : 0}
@@ -112,7 +118,7 @@ const Navbar = () => {
                   {" "}
                   <FaRegUserCircle
                     size={22}
-                    className="hover:text-red-900 duration-200 cursor-pointer"
+                    className="hover:text-red-900 duration-200 cursor-pointer dark:hover:text-orange-500 dark:text-white"
                   />
                 </span>
               )}
@@ -123,26 +129,40 @@ const Navbar = () => {
                 </div>
               ) : (
                 <div>
-                  <Link to={"authentication"}>
+                  <Link to={"/authentication"}>
                     <Dropdown.Item>Sign Up</Dropdown.Item>
                   </Link>
                 </div>
               )}
             </Dropdown>
           </div>
-        </div>
+          <button
+            onClick={toggleDarkMode}
+            className="text-2xl dark:text-yellow-500"
+          >
+            {darkMode ? (
+              <i>
+                <IoSunnySharp />
+              </i>
+            ) : (
+              <i>
+                <TbMoonFilled />
+              </i>
+            )}
+          </button>
+        </di>
       </div>
       {mobileNav && (
-        <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 w-fit"></div>
+        <div className="md:hidden fixed inset-0 bg-black bg-opacity-50 z-50 w-fit "></div>
       )}
       <div
-        className={`md:hidden inset-y-0 left-0 w-2/3 z-50 transition-transform transform absolute h-screen top-16 ${
+        className={`md:hidden inset-y-0 left-0 w-2/3 z-50  transition-transform transform absolute h-screen top-16  ${
           mobileNav ? "translate-x-0" : "-translate-x-full"
         }`}
       >
         <Sidebar
-          aria-label="Sidebar with multi-level dropdown example"
-          className="w-[full]"
+          aria-label="Sidebar with multi-level dropdown example "
+          className="w-[full]  "
         >
           <Sidebar.Items>
             <Sidebar.ItemGroup>

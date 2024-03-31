@@ -38,7 +38,7 @@ const Welcome = () => {
 
   return (
     <>
-      <div className="bg-image bg-cover bg-center h-full flex justify-start items-start flex-col w-full p-12 ">
+      <div className="bg-image bg-cover bg-center h-full flex justify-start items-start flex-col w-full p-12  transition-all duration-300 ">
         <div className="left-container flex justify-start flex-col xl:w-[50%] py-12 sm:w-[50%]">
           {user ? (
             <h1
