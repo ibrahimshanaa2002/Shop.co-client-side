@@ -173,7 +173,7 @@ const ProductCard = (props) => {
           className="flex flex-col items-start  w-full h-full border border-gray-200 dark:border-gray-500 dark:border-opacity-75 rounded-lg overflow-hidden"
           data-aos="zoom-in-down"
         >
-          <div className={`w-full relative img-hover-zoom h-auto`}>
+          <div className={`w-full relative img-hover-zoom h-[30vh] `}>
             <img
               src={props.img}
               className="w-full h-auto"
@@ -181,14 +181,14 @@ const ProductCard = (props) => {
               style={{ maxWidth: "100%" }}
             />
           </div>
-          <div className="p-4 flex flex-col justify-start transition-colors duration-300 dark:bg-[rgb(30,30,30)] w-full ">
+          <div className="p-4 flex flex-col justify-start ">
             <div
-              className="text-sm sm:text-base md:text-lg font-bold titles dark:text-white"
+              className="text-sm sm:text-base md:text-lg font-bold titles"
               style={{ height: "4rem" }}
             >
               {props.title}
             </div>
-            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70 dark:text-white dark:text-opacity-60">
+            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70">
               {props.desc}
             </div>
             <div className="flex items-center mb-2 py-4 justify-start">
