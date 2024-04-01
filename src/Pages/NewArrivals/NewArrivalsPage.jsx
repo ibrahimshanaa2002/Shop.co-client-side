@@ -41,7 +41,7 @@ const NewArrivalsPage = () => {
         </div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 w-full dark:text-white">
           {shuffledArrivals.map((item) => (
             <ProductCard
               key={item._id}

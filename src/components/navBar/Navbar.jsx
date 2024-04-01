@@ -67,7 +67,7 @@ const Navbar = () => {
   return (
     <div className="relative" ref={navbarRef}>
       <div className="flex flex-row items-center px-3 py-4 justify-between md:gap-6 lg:px-8 md:px-8 transition-colors duration-300 dark:bg-[rgb(30,30,30)] ">
-        <div className="flex items-center gap-5">
+        <div className="flex items-center gap-2">
           <RxHamburgerMenu
             onClick={handleMobileNav}
             size={20}
@@ -97,7 +97,10 @@ const Navbar = () => {
           </li>
         </ul>
         <SearchPopup />
-        <di v className="flex gap-4  items-center justify-center  pl-8 ">
+        <di
+          v
+          className="flex gap-2 sm:gap-4  items-center justify-center  pl-5 "
+        >
           <Link to={"/Cart"}>
             <div className="relative ">
               <FiShoppingCart

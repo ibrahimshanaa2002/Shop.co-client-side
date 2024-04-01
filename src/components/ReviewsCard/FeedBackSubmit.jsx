@@ -43,15 +43,12 @@ const FeedBackSubmit = () => {
     } else {
       setError("");
       try {
-        const response = await axios.post(
-          `${backendUrl}/api/user/feedback`,
-          {
-            name: name,
-            title: title,
-            body: review,
-            rating: value,
-          }
-        );
+        const response = await axios.post(`${backendUrl}/api/user/feedback`, {
+          name: name,
+          title: title,
+          body: review,
+          rating: value,
+        });
         console.log("Feedback submitted successfully:", response.data);
         setValue("");
         setHover("");
@@ -113,7 +110,7 @@ const FeedBackSubmit = () => {
                 <input
                   type="text"
                   placeholder="Write your name"
-                  className="w-full outline-none text-gray-700 text-lg"
+                  className="w-full outline-none text-gray-700 text-lg  focus:outline-none focus:border-transparent focus:ring-0 border-none"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -122,7 +119,7 @@ const FeedBackSubmit = () => {
                 <input
                   type="text"
                   placeholder="Write your title"
-                  className="w-full outline-none text-gray-700 text-lg"
+                  className="w-full outline-none text-gray-700 text-lg focus:outline-none focus:border-transparent focus:ring-0 border-none"
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                 />
@@ -131,7 +128,7 @@ const FeedBackSubmit = () => {
             <div className="flex justify-center border-2 py-2 px-6 rounded-xl h-44">
               <textarea
                 placeholder="Write your review"
-                className="w-full outline-none text-gray-700 text-lg resize-none"
+                className="w-full outline-none text-gray-700 text-lg resize-none focus:outline-none focus:border-transparent focus:ring-0 border-none"
                 value={review}
                 onChange={handleReviewChange}
               />

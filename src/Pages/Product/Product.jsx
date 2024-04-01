@@ -116,7 +116,7 @@ const Product = () => {
   return (
     <div className="main w-full h-full items-center flex justify-around gap-6 p-10 transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white  ">
       {/* Left container */}
-      <div className="left-container w-[40%]  flex justify-center gap-6">
+      <div className="left-container w-[40%] items-center  flex justify-center gap-6">
         {/* Big product image */}
         <div className="big-image img-hover-zoom ">
           <img

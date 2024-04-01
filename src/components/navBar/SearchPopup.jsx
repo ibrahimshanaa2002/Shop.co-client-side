@@ -73,7 +73,7 @@ const SearchPopup = () => {
   return (
     <div className="w-full dark:text-black" ref={searchRef}>
       {/* Search input */}
-      <div className="bg-gray-100 flex justify-center items-center sm:flex w-full px-2 py-1 ml-5 placeholder:text-[10px] rounded-full ">
+      <div className="bg-gray-100 flex justify-center items-center sm:flex w-full px-2 py-1 ml-2 placeholder:text-[10px] rounded-full ">
         <IoSearchOutline size={30} className="text-gray-500 " />
         <input
           className="bg-transparent border-none rounded-none w-full outline-none px-4 focus:outline-none focus:border-transparent focus:ring-0"

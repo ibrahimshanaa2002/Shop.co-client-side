@@ -39,7 +39,7 @@ const TopSelling = () => {
         <div className="text-4xl font-bold uppercase">Top Selling</div>
 
         {/* Product Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 w-full dark:text-white">
           {shuffledProducts.map((item) => (
             <ProductCard
               key={item._id}

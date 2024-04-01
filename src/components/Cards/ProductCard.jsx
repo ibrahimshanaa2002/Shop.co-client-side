@@ -173,7 +173,9 @@ const ProductCard = (props) => {
           className="flex flex-col items-start  w-full h-full border border-gray-200 dark:border-gray-500 dark:border-opacity-75 rounded-lg overflow-hidden"
           data-aos="zoom-in-down"
         >
-          <div className={`w-full relative img-hover-zoom h-[30vh] `}>
+          <div
+            className={`w-full relative img-hover-zoom h-[20vh] lg:h-[40vh] `}
+          >
             <img
               src={props.img}
               className="w-full h-auto"
@@ -182,13 +184,10 @@ const ProductCard = (props) => {
             />
           </div>
           <div className="p-4 flex flex-col justify-start ">
-            <div
-              className="text-sm sm:text-base md:text-lg font-bold titles"
-              style={{ height: "4rem" }}
-            >
+            <div className="text-sm sm:text-base md:text-lg font-bold titles line-clamp-2 mb-3 ">
               {props.title}
             </div>
-            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70">
+            <div className="text-sm sm:text-base md:text-lg overflow-hidden  descriptions h-[3rem] line-clamp-2 text-gray-600 text-opacity-70 dark:text-gray-400 ">
               {props.desc}
             </div>
             <div className="flex items-center mb-2 py-4 justify-start">

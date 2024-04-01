@@ -17,7 +17,7 @@ const NewArrivals = () => {
     <div className="w-full   py-16 transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white ">
       <div className="flex flex-col items-center w-full gap-8 px-5 h-full">
         <div className="text-4xl font-[600]">NEW ARRIVALS</div>
-        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8 w-full h-full">
+        <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-1 w-full h-full">
           {limitedNewArrivals.map((item) => (
             <ProductCard
               key={item._id}
