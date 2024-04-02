@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "../../components/Cards/ProductCard";
 import { ProductContext } from "../../context/productContext/productContextProvider";
 import Loader from "../../components/Loader/Loader";
+import Breadcrumb from "../../components/BreadCrumb/Breadcrumb";
 
 const Gym = () => {
   const { filterProductsForGym, loading } = useContext(ProductContext);
@@ -35,6 +36,9 @@ const Gym = () => {
 
   return (
     <div className="w-full py-16 transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white">
+     <div>
+      <Breadcrumb />
+    </div>
       <div className="flex flex-col items-center w-full gap-8 px-5 h-full">
         {/* Title */}
         <div className="text-4xl font-bold">Gym's Collection</div>

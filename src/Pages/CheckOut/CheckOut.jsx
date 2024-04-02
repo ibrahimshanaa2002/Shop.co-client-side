@@ -31,6 +31,11 @@ const CheckOut = () => {
   const handleSelectChange = (event) => {
     setSelectedGovernorate(event.target.value);
   };
+  const handlePhoneNumberChange = (e) => {
+    // Remove spaces from phone number
+    const formattedPhoneNumber = e.target.value.replace(/\s/g, "");
+    setPhoneNumber(formattedPhoneNumber);
+  };
 
   const handleSubmit = async () => {
     try {
@@ -140,7 +145,7 @@ const CheckOut = () => {
             <input
               type="tel"
               inputMode="numeric"
-              onChange={(e) => setPhoneNumber(e.target.value)}
+              onChange={handlePhoneNumberChange}
               id="card-holder"
               name="card-holder"
               className="w-full rounded-md border border-gray-200 px-4 py-3 pl-11 text-sm uppercase shadow-sm outline-none focus:z-10 focus:outline-none focus:border-transparent focus:ring-0"

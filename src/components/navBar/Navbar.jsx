@@ -101,7 +101,7 @@ const Navbar = () => {
           v
           className="flex gap-2 sm:gap-4  items-center justify-center  pl-5 "
         >
-          <Link to={"/Cart"}>
+          <Link to={"/cart"}>
             <div className="relative ">
               <FiShoppingCart
                 size={22}

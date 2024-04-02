@@ -32,6 +32,7 @@ import LayoutCasual from "./Layout/LayoutCasual";
 import LayoutParty from "./Layout/LayoutParty";
 import LayoutFormal from "./Layout/LayoutFormal";
 import LayoutGym from "./Layout/LayoutGym";
+import Breadcrumb from "./components/BreadCrumb/Breadcrumb";
 
 library.add(fas);
 
@@ -63,7 +64,7 @@ function App() {
       <BrowserRouter>
         <ScrollToTop />
         <Routes>
-          <Route path="/" element={<Layout />} />
+          <Route path="/" exact element={<Layout />} />
           {/* Authentication */}
           <Route path="/authentication" element={<LoginSignup />} />
           <Route path="/forget-password" element={<ForgetPassword />} />

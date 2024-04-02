@@ -15,20 +15,44 @@ const ProductContextProvider = (props) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const [productsResponse, newArrivalsResponse, topSellingResponse] =
-          await Promise.all([
-            axios.get(`${backendUrl}/api/product/allProducts`),
-            axios.get(`${backendUrl}/api/product/newArrivals`),
-            axios.get(`${backendUrl}/api/product/topSelling`),
-          ]);
+        const cachedProducts = sessionStorage.getItem("products");
+        const cachedNewArrivals = sessionStorage.getItem("newArrivals");
+        const cachedTopSelling = sessionStorage.getItem("topSelling");
 
-        setProducts(productsResponse.data);
-        setNewArrivals(newArrivalsResponse.data);
-        setTopSellingProducts(topSellingResponse.data);
+        if (cachedProducts && cachedNewArrivals && cachedTopSelling) {
+          setProducts(JSON.parse(cachedProducts));
+          setNewArrivals(JSON.parse(cachedNewArrivals));
+          setTopSellingProducts(JSON.parse(cachedTopSelling));
+          setLoading(false);
+        } else {
+          const [productsResponse, newArrivalsResponse, topSellingResponse] =
+            await Promise.all([
+              axios.get(`${backendUrl}/api/product/allProducts`),
+              axios.get(`${backendUrl}/api/product/newArrivals`),
+              axios.get(`${backendUrl}/api/product/topSelling`),
+            ]);
+
+          setProducts(productsResponse.data);
+          setNewArrivals(newArrivalsResponse.data);
+          setTopSellingProducts(topSellingResponse.data);
+          setLoading(false);
+
+          sessionStorage.setItem(
+            "products",
+            JSON.stringify(productsResponse.data)
+          );
+          sessionStorage.setItem(
+            "newArrivals",
+            JSON.stringify(newArrivalsResponse.data)
+          );
+          sessionStorage.setItem(
+            "topSelling",
+            JSON.stringify(topSellingResponse.data)
+          );
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
-      } finally {
-        setLoading(false); // Set loading state to false after data fetching is done
+        setLoading(false);
       }
     };
 
@@ -74,13 +98,14 @@ const ProductContextProvider = (props) => {
   };
 
   // Function to filter products by color
-const filterProductsByColor = (color) => {
-  return products.filter((product) => {
-    // Ensure that the color property is always a string before calling toLowerCase
-    const productColor = typeof product.color === "string" ? product.color : "";
-    return productColor.toLowerCase() === color.toLowerCase();
-  });
-};
+  const filterProductsByColor = (color) => {
+    return products.filter((product) => {
+      // Ensure that the color property is always a string before calling toLowerCase
+      const productColor =
+        typeof product.color === "string" ? product.color : "";
+      return productColor.toLowerCase() === color.toLowerCase();
+    });
+  };
 
   // Effect hook to fetch new arrivals
   useEffect(() => {
@@ -129,6 +154,7 @@ const filterProductsByColor = (color) => {
 
     fetchTopSellingProducts();
   }, []);
+
   const contextValue = {
     products: products,
     newArrivals: newArrivals,

@@ -7,6 +7,7 @@ import { ProductContext } from "../../context/productContext/productContextProvi
 import Loader from "../../components/Loader/Loader";
 import axios from "axios";
 import { MdError } from "react-icons/md";
+import Breadcrumb from "../../components/BreadCrumb/Breadcrumb";
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const convertColorToHex = (colorName) => {
   const tempColor = document.createElement("div");
@@ -156,6 +157,9 @@ const Product = () => {
       </div>
       {/* Right container */}
       <div className="right-container w-[60%] h-full flex flex-col  justify-center">
+        <div className="text-black">
+          <Breadcrumb />
+        </div>
         {/* Product title */}
         <h1 className="text-5xl font-extrabold uppercase title">
           {product.title}
@@ -250,8 +254,8 @@ const Product = () => {
                 <span className="text-red-500 animate-pulse">{error}</span>
               </div>
             </div>
-            
-          )}  {successMessage && (
+          )}{" "}
+          {successMessage && (
             <div className="inset-y-0 left-0 flex items-center pointer-events-none">
               <MdError className="text-green-800 text-md" />
               <div className="pl-2">
@@ -261,10 +265,8 @@ const Product = () => {
               </div>
             </div>
           )}
-          
         </div>
         {/* Success message */}
-       
 
         {/* Quantity counter */}
         <div className="Counter flex text-center items-center w-full py-5 gap-4 dark:text-black">

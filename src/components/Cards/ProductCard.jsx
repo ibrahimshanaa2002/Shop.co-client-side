@@ -170,7 +170,7 @@ const ProductCard = (props) => {
       ) : (
         <Link
           to={`/product/${props._id}`}
-          className="flex flex-col items-start  w-full h-full border border-gray-200 dark:border-gray-500 dark:border-opacity-75 rounded-lg overflow-hidden"
+          className="flex flex-col items-start  w-full h-full border border-gray-200 dark:border-gray-500 dark:border-opacity-75 rounded-lg overflow-hidden hover:bg-gray-100 dark:hover:bg-[rgb(30,30,30)] bg-opacity-50 transition duration-300 ease-in-out hover:bg-opacity-60"
           data-aos="zoom-in-down"
         >
           <div
@@ -191,11 +191,31 @@ const ProductCard = (props) => {
               {props.desc}
             </div>
             <div className="flex items-center mb-2 py-4 justify-start">
-              <img src={star1} className="w-4 h-4 mr-1" alt="Star" />
-              <img src={star1} className="w-4 h-4 mr-1" alt="Star" />
-              <img src={star1} className="w-4 h-4 mr-1" alt="Star" />
-              <img src={star1} className="w-4 h-4 mr-1" alt="Star" />
-              <img src={star2} className="w-4 h-4 mr-1" alt="Star" />
+              <img
+                src={star1}
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
+                alt="Star"
+              />
+              <img
+                src={star1}
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
+                alt="Star"
+              />
+              <img
+                src={star1}
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
+                alt="Star"
+              />
+              <img
+                src={star1}
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
+                alt="Star"
+              />
+              <img
+                src={star2}
+                className="w-3 h-3 sm:w-4 sm:h-4 mr-1"
+                alt="Star"
+              />
               <span className="text-sm ml-1 dark:text-white">4/5</span>
             </div>
             <div className="flex items-center text-gray-400 gap-6">

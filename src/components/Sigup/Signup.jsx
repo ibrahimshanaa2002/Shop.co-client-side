@@ -293,14 +293,14 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
               >
                 Sign up
               </div>
-              <div className="flex items-center justify-center py-4">
+              {/* <div className="flex items-center justify-center py-4">
                 or signup using
               </div>
               <div className="social-icons flex justify-center gap-7 pt-3">
                 <SocialIcon url="https://www.facebook.com/" />
                 <SocialIcon url="https://twitter.com/" />
                 <SocialIcon url="https://www.google.com/" />
-              </div>
+              </div> */}
 
               <h3 className="flex justify-center pt-9 pointer-events-none">
                 Already having an account?

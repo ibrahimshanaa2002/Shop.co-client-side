@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import ProductCard from "../../components/Cards/ProductCard";
 import { ProductContext } from "../../context/productContext/productContextProvider";
 import Loader from "../../components/Loader/Loader";
+import Breadcrumb from "../../components/BreadCrumb/Breadcrumb";
 
 const NewArrivalsPage = () => {
   const { newArrivals, loading } = useContext(ProductContext);
@@ -34,6 +35,9 @@ const NewArrivalsPage = () => {
 
   return (
     <div className="w-full py-16 transition-colors duration-300 dark:bg-[rgb(15,15,15)]">
+    <div>
+      <Breadcrumb />
+    </div>
       <div className="flex flex-col items-center w-full gap-8 px-5 h-full">
         {/* Title */}
         <div className="text-4xl font-bold uppercase dark:text-white">

@@ -49,7 +49,7 @@ const ShopDropDown = () => {
             setOpen={setOpen}
             Icon={FiActivity}
             text="Top Selling"
-            to="/top-selling"
+            to="/topSelling"
           />
           <Option
             setOpen={setOpen}

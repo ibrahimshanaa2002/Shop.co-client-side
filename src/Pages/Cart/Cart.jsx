@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom"; // Import useNavigate hook
 import { UserContext } from "../../context/userContext/userContextProvider";
 
 import axios from "axios";
+import Breadcrumb from "../../components/BreadCrumb/Breadcrumb";
 const backendUrl = process.env.REACT_APP_BACKEND_URL;
 const Cart = () => {
   // User context
@@ -102,6 +103,9 @@ const Cart = () => {
 
   return (
     <div className="transition-colors duration-300 dark:bg-[rgb(18,18,18)] dark:text-white">
+      <div className="pt-2">
+        <Breadcrumb />
+      </div>
       {/* Cart title */}
       <div className="title px-5 py-5">
         <h1 className="text-5xl font-bold flex items-center">Your Cart</h1>

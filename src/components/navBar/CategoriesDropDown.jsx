@@ -35,19 +35,19 @@ const CategoriesDropDown = () => {
             setOpen={setOpen}
             Icon={LiaMaleSolid}
             text="Men"
-            to="/Men-Products"
+            to="/men-products"
           />
           <Option
             setOpen={setOpen}
             Icon={LiaFemaleSolid}
             text="Women"
-            to="/Women-Products"
+            to="/women-products"
           />
           <Option
             setOpen={setOpen}
             Icon={TbMoodKid}
             text="Kids"
-            to="/Kids-Product"
+            to="/kids-product"
           />
         </motion.ul>
       </motion.div>
