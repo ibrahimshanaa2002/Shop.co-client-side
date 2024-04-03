@@ -16,8 +16,6 @@ const LoginSignup = () => {
 
   return (
     <div>
-      {/* Banner */}
-      <Banner />
       <div>
         {/* Render either Login or Signup component based on toggle state */}
         {toggle ? (
