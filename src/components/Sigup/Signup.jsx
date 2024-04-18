@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { FaCheckCircle, FaLock, FaUser } from "react-icons/fa";
 import { IoIosEyeOff, IoMdEye } from "react-icons/io";
 import { Link, useNavigate } from "react-router-dom";
-import { MdError } from "react-icons/md";
+import { MdEmail, MdError } from "react-icons/md";
 
 import { SocialIcon } from "react-social-icons";
 import axios from "axios";
@@ -88,25 +88,29 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
   };
 
   return (
-    <div>
+    <div className="dark:bg-[rgb(30,30,30)]">
       <div className="">
         <div className="flex  items-center justify-around  w-full h-screen">
-          <div className="lg:text-6xl md:text-3xl text-lg font-extrabold pointer-events-none w-full h-full md:flex items-center justify-center hidden">
+          <div className="select-none lg:text-6xl md:text-3xl text-lg font-extrabold pointer-events-none w-full h-full md:flex items-center justify-center hidden dark:text-orange-500">
             SHOP.CO
           </div>
 
           <div className="flex items-center flex-col justify-center gap-6  w-full">
-            <div className=" w-full h-full px-8 py-8">
+            <div className=" w-full px-8 py-8 dark:bg-[rgb(30,30,30)] h-screen overflow-y-scroll flex flex-col sm:justify-center ">
               <div className="flex items-center justify-center py-4">
-                <h1 className="font-bold text-3xl">Sign Up</h1>
+                <h1 className="select-none font-bold text-3xl dark:text-orange-500">
+                  Sign Up
+                </h1>
               </div>
 
-              <div className="w-full h-full">
-                <div className="block pb-6">
-                  <span className="text-gray-700">UserName</span>
+              <div className="w-full ">
+                <div className="pb-6 flex flex-col gap-3">
+                  <span className="text-gray-700 dark:text-white select-none">
+                    UserName
+                  </span>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <FaUser />
+                      <FaUser className="text-[19px] dark:text-orange-500" />
                     </div>
                     <input
                       value={username}
@@ -118,17 +122,19 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                       required
                       type="text"
                       placeholder="Username"
-                      className="outline-none rounded-2xl block w-full py-3  pl-10 pr-3 leading-tight text-gray-700 border-b border-gray-200 bg-transparent peer focus:border-black focus:ring-0"
+                      className="select-none outline-none placeholder:text-white placeholder:opacity-50 rounded-2xl block w-full py-3 pl-10 pr-3 leading-tight dark:text-white text-gray-700 border-b border-gray-200 bg-transparent peer focus:border-orange-500 focus:ring-0 transition border duration-300"
                     />
                   </div>
                 </div>
               </div>
-              <div className="w-full h-full">
-                <div className="block pb-6">
-                  <span className="text-gray-700">Email</span>
+              <div className="w-full">
+                <div className="flex flex-col gap-3 pb-6">
+                  <span className="text-gray-700 dark:text-white select-none">
+                    Email
+                  </span>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <FaUser />
+                      <MdEmail className="text-[19px] dark:text-orange-500" />
                     </div>
                     <input
                       required
@@ -139,17 +145,19 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                       }}
                       type="email"
                       placeholder="Email"
-                      className="outline-none focus:border-black focus:ring-0 rounded-2xl block w-full py-3  pl-10 pr-3 leading-tight text-gray-700 border-b border-gray-200 bg-transparent peer"
+                      className="select-none outline-none placeholder:text-white placeholder:opacity-50 rounded-2xl block w-full py-3 pl-10 pr-3 leading-tight dark:text-white text-gray-700 border-b border-gray-200 bg-transparent peer focus:border-orange-500 focus:ring-0 transition border duration-300"
                     />
                   </div>
                 </div>
               </div>
-              <div className="w-full h-full">
-                <div className="block pb-6">
-                  <span className="text-gray-700">Password</span>
+              <div className="w-full ">
+                <div className="flex flex-col gap-3 pb-6">
+                  <span className="text-gray-700 dark:text-white select-none">
+                    Password
+                  </span>
                   <div className="relative">
                     <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                      <FaLock />
+                      <FaLock className="text-[19px] dark:text-orange-500" />
                     </div>
                     <div className="flex items-center relative">
                       <input
@@ -163,25 +171,31 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                         }}
                         type={`${showpassword ? "text" : "password"}`}
                         placeholder="Password"
-                        className="outline-none focus:border-black focus:ring-0  rounded-2xl block w-full py-3  pl-10 pr-3 leading-tight text-gray-700 border-b border-gray-200 bg-transparent peer"
+                        className="select-none rounded-2xl block w-full placeholder:text-white placeholder:opacity-50 dark:text-white py-3 pl-10 pr-3 leading-tight text-gray-700 border-b border-gray-200 bg-transparent peer focus:border-orange-500 focus:ring-0 transition border duration-300"
                       />
                       <div className="text-2xl cursor-pointer absolute right-2 duration-200 text-[#000700]">
                         {showpassword ? (
-                          <IoIosEyeOff onClick={handlepassword} />
+                          <IoIosEyeOff
+                            onClick={handlepassword}
+                            className="dark:text-white dark:opacity-85 transition-opacity duration-300 ease-in-out select-none"
+                          />
                         ) : (
-                          <IoMdEye onClick={handlepassword} />
+                          <IoMdEye
+                            onClick={handlepassword}
+                            className="dark:text-white dark:opacity-85 transition-opacity duration-300 ease-in-out select-none"
+                          />
                         )}
                       </div>
                     </div>
                   </div>
                   <div className="relative pt-5">
-                    <ul>
+                    <ul className="dark:text-white">
                       <li className="flex items-center">
                         <div className="inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
                           <FaCheckCircle
                             className={
                               validations.length
-                                ? "text-green-500 duration-300"
+                                ? "text-green-500 duration-300 dark:text-blue-400"
                                 : "text-gray-700"
                             }
                           />
@@ -196,7 +210,7 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                           <FaCheckCircle
                             className={
                               validations.uppercase
-                                ? "text-green-500 duration-300"
+                                ? "text-green-500 duration-300 dark:text-blue-400"
                                 : "text-gray-700"
                             }
                           />
@@ -212,7 +226,7 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                           <FaCheckCircle
                             className={
                               validations.lowercase
-                                ? "text-green-500 duration-300"
+                                ? "text-green-500 duration-300 dark:text-blue-400"
                                 : "text-gray-700"
                             }
                           />
@@ -228,7 +242,7 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                           <FaCheckCircle
                             className={
                               validations.specialChar
-                                ? "text-green-500 duration-300"
+                                ? "text-green-500 duration-300 dark:text-blue-400"
                                 : "text-gray-700"
                             }
                           />
@@ -243,7 +257,7 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                           <FaCheckCircle
                             className={
                               validations.digit
-                                ? "text-green-500 duration-300"
+                                ? "text-green-500 duration-300 dark:text-blue-400"
                                 : "text-gray-700"
                             }
                           />
@@ -279,17 +293,17 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                   </div>
                 </div>
               </div>
-              <span className="flex justify-end pb-5 ">
+              <div className="flex justify-end py-2">
                 <Link
-                  to={""}
-                  className="cursor-pointer duration-10 hover:font-semibold hover:underline"
+                  to={"/forget-password"}
+                  className="cursor-pointer duration-10 hover:underline dark:text-white select-none"
                 >
                   Forgot Password?
                 </Link>
-              </span>
+              </div>
               <div
                 onClick={handleSubmit}
-                className="login-button flex justify-center bg-black text-white p-5 rounded-3xl cursor-pointer hover:bg-orange-400 duration-300"
+                className="login-button select-none flex justify-center bg-black text-white p-5 rounded-3xl cursor-pointer hover:bg-orange-500 duration-300"
               >
                 Sign up
               </div>
@@ -302,14 +316,14 @@ const Signup = ({ handleToggle, handlepassword, showpassword }) => {
                 <SocialIcon url="https://www.google.com/" />
               </div> */}
 
-              <h3 className="flex justify-center pt-9 pointer-events-none">
+              <h3 className="flex justify-center pt-9 pointer-events-none dark:text-white select-none">
                 Already having an account?
               </h3>
               <h1
                 onClick={handleToggle}
                 className="flex items-center justify-center py-2 "
               >
-                <span className="hover:text-orange-800 duration-300 cursor-pointer font-semibold ">
+                <span className="hover:text-orange-800 duration-300 cursor-pointer font-semibold dark:text-white dark:hover:text-orange-500 select-none">
                   Login
                 </span>
               </h1>
